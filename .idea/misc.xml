@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/drawable-v24/button.xml" value="0.2535" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/drawable-v24/button_cards.xml" value="0.2685" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/drawable/boton_redondo.xml" value="0.1175" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.189" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/drawable/ic_favorites_24dp_default.xml" value="0.189" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/drawable/ic_favorites_24dp_onclick.xml" value="0.189" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/drawable/ic_favorites_black_24dp.xml" value="0.189" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/drawable/scan_plant.xml" value="0.3295" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/drawable/shape.xml" value="0.1345" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/layout/activity_auth.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/layout/activity_ayuda_soporte.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/layout/activity_configuracion.xml" value="0.30104166666666665" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/layout/activity_more_info.xml" value="0.33" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/layout/activity_routes.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/layout/activity_signup.xml" value="0.33" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/layout/activity_update_perfil.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/layout/elementoslistaplantas.xml" value="0.1" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/layout/elementoslistaplantasgeneral.xml" value="0.4895833333333333" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/layout/elementoslistatiendas.xml" value="0.33" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/layout/elementoslistausuario.xml" value="0.22604166666666667" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/layout/elementoslistavehiculos.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/layout/fragment_favorite.xml" value="0.33" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/layout/fragment_home.xml" value="0.18072916666666666" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/layout/fragment_map.xml" value="0.25" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/layout/fragment_search.xml" value="0.2609375" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/layout/header.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/layout/mitoolbar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/layout/shape.xml" value="0.2989583333333333" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/menu/menulateral.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/mipmap-anydpi-v26/logo_.xml" value="0.2535" />
+        <entry key="..\:/Users/Juan Diego/Desktop/MenuDown/app/src/main/res/mipmap-anydpi-v26/logo__round.xml" value="0.2535" />
+        <entry key="..\:/Users/Juan Diego/Desktop/demo/ProyectoFinal4toSemestre/Android/MenuDown/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Juan Diego/Desktop/demo/ProyectoFinal4toSemestre/Android/MenuDown/app/src/main/res/layout/activity_routes.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Juan Diego/Desktop/demo/ProyectoFinal4toSemestre/Android/MenuDown/app/src/main/res/layout/elementoslistavehiculos.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/Juan Diego/Desktop/demo/ProyectoFinal4toSemestre/Android/MenuDown/app/src/main/res/layout/fragment_favorite.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Juan Diego/Desktop/demo/ProyectoFinal4toSemestre/Android/MenuDown/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Juan Diego/Desktop/demo/ProyectoFinal4toSemestre/Android/MenuDown/app/src/main/res/menu/menulateral.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Juan Diego/Desktop/demo/ProyectoFinal4toSemestre/Android/MenuDown/app/src/main/res/menu/vehiculo.xml" value="0.36666666666666664" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
