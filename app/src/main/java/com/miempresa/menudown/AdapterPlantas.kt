@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import java.io.BufferedInputStream
 import java.io.IOException
@@ -17,7 +18,7 @@ import java.io.InputStream
 import java.net.URL
 import java.net.URLConnection
 
-class AdaptadorElementosPlantas(val ListaElementos:ArrayList<Elementos>): RecyclerView.Adapter<AdaptadorElementosPlantas.ViewHolder>() {
+class AdapterPlantas(val ListaElementos:ArrayList<Elementos>): RecyclerView.Adapter<AdapterPlantas.ViewHolder>() {
 
     private fun obtener_imagen(url: String): Bitmap? {
         var bm: Bitmap? = null
@@ -41,7 +42,7 @@ class AdaptadorElementosPlantas(val ListaElementos:ArrayList<Elementos>): Recycl
     class ViewHolder (itemView : View):RecyclerView.ViewHolder(itemView) {
         val fImagen = itemView.findViewById<ImageView>(R.id.plant_image);
         val fTitle = itemView.findViewById<TextView>(R.id.plant_title)
-        val fname_c = itemView.findViewById<TextView>(R.id.plant_c_name)
+        //val fname_c = itemView.findViewById<TextView>(R.id.plant_c_name)
         //val fConductor = itemView.findViewById<TextView>(R.id.item_conductor)
         //val fModelo = itemView.findViewById<TextView>(R.id.item_modelo)
 
@@ -49,12 +50,10 @@ class AdaptadorElementosPlantas(val ListaElementos:ArrayList<Elementos>): Recycl
     }
     @SuppressLint("RestrictedApi")
     override fun onBindViewHolder(holder: ViewHolder, position: Int){
-        holder?.fImagen?.setImageBitmap(obtener_imagen(ListaElementos[position].img))
+        //holder?.fImagen?.setImageBitmap(obtener_imagen(ListaElementos[position].img))
         holder?.fTitle?.text=ListaElementos[position].nombre
-        //holder?.fConductor?.text=ListaElementos[position].driver_name
-        //holder?.fModelo?.text=ListaElementos[position].model
 
-
+        /*
         var id = ListaElementos[position].id
         var nombre = ListaElementos[position].nombre
         var informacion = ListaElementos[position].informacion
@@ -71,6 +70,8 @@ class AdaptadorElementosPlantas(val ListaElementos:ArrayList<Elementos>): Recycl
             llamaractividad.putExtra("img", imagen)
             holder.itemView.context.startActivity(llamaractividad)
         }
+        */
+
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent?.context).inflate(R.layout.elementoslistaplantasgeneral, parent, false);

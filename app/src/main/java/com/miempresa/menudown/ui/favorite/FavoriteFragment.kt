@@ -51,21 +51,19 @@ class FavoriteFragment : Fragment() {
                     try {
                         for (i in 0 until response.length()) {
                             val id =
-                                response.getJSONObject(i).getString("id")
+                                response.getJSONObject(i).getString("_id")
                             val rfc =
                                 response.getJSONObject(i).getString("rfc")
                             val nombre =
                                 response.getJSONObject(i).getString("nombre")
                             val informacion =
                                 response.getJSONObject(i).getString("informacion")
-                            val nombre_c =
-                                response.getJSONObject(i).getString("nombre_cientifico")
                             val imagen =
                                 response.getJSONObject(i).getString("img")
-                            llenarLista.add(Elementos(id, rfc, nombre, informacion, nombre_c, imagen))
+                            llenarLista.add(Elementos(id, rfc, nombre, informacion, imagen))
                         }
                         adapter = AdaptadorElementos(llenarLista)
-                        rv_Favoritos.adapter = adapter
+                        rv_Favoritos?.adapter = adapter
 
                     } catch (e: JSONException) {
                         Toast.makeText(
@@ -96,7 +94,7 @@ class FavoriteFragment : Fragment() {
                         try {
                             for (i in 0 until response.length()) {
                                 val id =
-                                    response.getJSONObject(i).getString("id")
+                                    response.getJSONObject(i).getString("_id")
                                 val nombre =
                                     response.getJSONObject(i).getString("nombre")
                                 val imagen =
@@ -104,7 +102,7 @@ class FavoriteFragment : Fragment() {
                                 llenarListaTiendas.add(ElementosTienda(id, nombre, imagen))
                             }
                             adapter2 = AdaptadorElementosTiendas(llenarListaTiendas)
-                            rv_tiendas.adapter = adapter2
+                            rv_tiendas?.adapter = adapter2
 
                         } catch (e: JSONException) {
                             Toast.makeText(

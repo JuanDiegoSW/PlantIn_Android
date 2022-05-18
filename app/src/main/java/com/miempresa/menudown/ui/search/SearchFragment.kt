@@ -61,40 +61,38 @@ class SearchFragment : Fragment() {
                 val queue = Volley.newRequestQueue(activity)
                 val url = getString(R.string.urlAPI) + "/plantas"
                 val stringRequest = JsonArrayRequest(url,
-                        Response.Listener { response ->
-                            try {
-                                for (i in 0 until response.length()) {
-                                    val id =
-                                        response.getJSONObject(i).getString("id")
-                                    val rfc =
-                                        response.getJSONObject(i).getString("rfc")
-                                    val nombre =
-                                        response.getJSONObject(i).getString("nombre")
-                                    val informacion =
-                                        response.getJSONObject(i).getString("informacion")
-                                    val nombre_c =
-                                        response.getJSONObject(i).getString("nombre_cientifico")
-                                    val imagen =
-                                        response.getJSONObject(i).getString("img")
-                                    llenarLista.add(Elementos(id, rfc, nombre, informacion, nombre_c, imagen))
-                                }
-                                adapter = AdaptadorElementosPlantas(llenarLista)
-                                listavehiculos.adapter = adapter
-
-                            } catch (e: JSONException) {
-                                Toast.makeText(
-                                        activity,
-                                        "Error al obtener los datos",
-                                        Toast.LENGTH_LONG
-                                ).show()
+                    { response ->
+                        try {
+                            for (i in 0 until response.length()) {
+                                val id =
+                                    response.getJSONObject(i).getString("_id")
+                                val rfc =
+                                    response.getJSONObject(i).getString("rfc")
+                                val nombre =
+                                    response.getJSONObject(i).getString("nombre")
+                                val informacion =
+                                    response.getJSONObject(i).getString("informacion")
+                                val imagen =
+                                    response.getJSONObject(i).getString("img")
+                                llenarLista.add(Elementos(id, rfc, nombre, informacion, imagen))
                             }
-                        }, Response.ErrorListener {
-                    Toast.makeText(
-                            activity,
-                            "Verifique que esta conectado a internet",
-                            Toast.LENGTH_LONG
-                    ).show()
-                })
+                            adapter = AdaptadorElementosPlantas(llenarLista)
+                            listavehiculos.adapter = adapter
+
+                        } catch (e: JSONException) {
+                            Toast.makeText(
+                                    activity,
+                                    "Error al obtener los datos",
+                                    Toast.LENGTH_LONG
+                            ).show()
+                        }
+                    }, {
+                Toast.makeText(
+                        activity,
+                        "Verifique que esta conectado a internet",
+                        Toast.LENGTH_LONG
+                ).show()
+            })
                 queue.add(stringRequest)
             }
             //cargarLista()
@@ -125,11 +123,9 @@ class SearchFragment : Fragment() {
                                     response.getJSONObject(i).getString("nombre")
                                 val informacion =
                                     response.getJSONObject(i).getString("informacion")
-                                val nombre_c =
-                                    response.getJSONObject(i).getString("nombre_cientifico")
                                 val imagen =
                                     response.getJSONObject(i).getString("img")
-                                llenarLista.add(Elementos(id, rfc, nombre, informacion, nombre_c, imagen))
+                                llenarLista.add(Elementos(id, rfc, nombre, informacion,  imagen))
                             }
                             val adapter = AdaptadorElementosPlantas(llenarLista)
                             listavehiculos.adapter = adapter

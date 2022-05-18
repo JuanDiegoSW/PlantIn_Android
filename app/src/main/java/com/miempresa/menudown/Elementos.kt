@@ -6,7 +6,6 @@ data class Elementos(
         val rfc:String,
         val nombre: String,
         val informacion: String,
-        val nombre_c: String,
         val img: String
         )
 

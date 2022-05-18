@@ -5,17 +5,21 @@ package com.miempresa.menudown
 //import com.miempresa.menudown.R.style.AppCompat
 //import com.google.firebase.auth.FirebaseAuth
 //import com.example.chapatucombi.ui.home.HomeFragment
+
 import android.content.Intent
 import android.os.Bundle
 import android.os.StrictMode
+import android.util.Log
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.android.volley.AuthFailureError
+import com.android.volley.RequestQueue
 import com.android.volley.Response
-import com.android.volley.toolbox.JsonArrayRequest
+import com.android.volley.VolleyLog
+import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_auth.*
-import org.json.JSONException
+import org.json.JSONObject
 
 
 class AuthActivity : AppCompatActivity(){
@@ -40,13 +44,19 @@ class AuthActivity : AppCompatActivity(){
             //if (EmailEditText.text.isNotEmpty() && PasswordEditText.text.isNotEmpty()) {
             val email =  EmailEditText.text.toString()
             val password = PasswordEditText.text.toString()
+
+            loginRequest(email,password)
+            /*
             val queue = Volley.newRequestQueue(this)
             //var url = getString(R.string.urlAPI) + "/usuarios?"
             //url = url + "email="+ email + "&password=" + password
-            var url = "http://192.168.1.5:3000/usuarios?"
-            url = url + "email=" + email + "&password=" + password
-            //usuario_correo = email
-            var llenarLista = ArrayList<Elementos>()
+            var url = getString(R.string.urlAPI) + "/login"
+            val params = HashMap<Any, Any>()
+            params.put("correo", email);
+            params.put("password", password);
+            url = url + "correo=" + email + "&password=" + password
+
+
             val stringRequest = JsonArrayRequest(url,
                 Response.Listener { response ->
                     try {
@@ -76,8 +86,8 @@ class AuthActivity : AppCompatActivity(){
                         "Compruebe que tiene acceso a internet",
                         Toast.LENGTH_SHORT
                     ).show()
-                })
-            queue.add(stringRequest)
+                })*/
+            //queue.add(stringRequest)
         }
 
         sup.setOnClickListener(){
@@ -88,6 +98,68 @@ class AuthActivity : AppCompatActivity(){
         }
 
 
+
+
     }
+
+    private fun loginRequest(email: String, password: String) {
+        var url:String = getString(R.string.urlAPI) + "/login"
+
+
+        var requestQueue: RequestQueue = Volley.newRequestQueue(this)
+        /*
+        var stringRequest:StringRequest =
+            object : StringRequest(Request.Method.POST,url,Response.Listener { response ->
+                Toast.makeText(this,response.trim(),Toast.LENGTH_LONG).show()
+                if(response.getBolean)){
+                    Toast.makeText(this,"Welcome",Toast.LENGTH_LONG).show()
+                }
+                else {
+                    Toast.makeText(this,"Check UserNmae or password",Toast.LENGTH_LONG).show()
+                }
+
+        },Response.ErrorListener { error ->
+                Toast.makeText(this,error.message,Toast.LENGTH_LONG).show()
+            }){
+            override fun getParams(): MutableMap<String, String>? {
+                val params = HashMap<String, String>()
+                params.put("correo", email)
+                params.put("password", password)
+                return params
+            }
+        }
+        requestQueue.add(stringRequest)
+         */
+        val params = HashMap<String, String>()
+        params.put("correo", email)
+        params.put("password", password)
+        val jsonObjReq: JsonObjectRequest = object : JsonObjectRequest(Method.POST,
+            url, JSONObject(params as Map<*, *>),
+            Response.Listener { response ->
+                val llamaractividad = Intent(applicationContext, MainActivity::class.java)
+                usuario_correo = email
+                startActivity(llamaractividad)
+                finish()
+                //msgResponse.setText(response.toString())
+                //com.sun.deploy.ui.UIFactory.hideProgressDialog()
+            }, Response.ErrorListener { error ->
+                Toast.makeText(this,"check your username or password",Toast.LENGTH_LONG).show()
+            }) {
+            /**
+             * Passing some request headers
+             */
+            @Throws(AuthFailureError::class)
+            override fun getHeaders(): Map<String, String> {
+                val headers = HashMap<String, String>()
+                headers["Content-Type"] = "application/json; charset=utf-8"
+                return headers
+            }
+        }
+
+
+        requestQueue.add(jsonObjReq)
+    }
+
+
 
 }

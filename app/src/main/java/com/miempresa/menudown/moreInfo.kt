@@ -92,7 +92,7 @@ class moreInfo : AppCompatActivity(){
         val queue = Volley.newRequestQueue(this)
         val request: StringRequest = object : StringRequest(
 
-            Method.PATCH, url,
+            Method.PUT, url,
             Response.Listener { response ->
                 Toast.makeText(applicationContext, "Exito al añadir a su lista", Toast.LENGTH_SHORT).show()
                 //val it = Intent(this, AuthActivity::class.java)
@@ -111,60 +111,22 @@ class moreInfo : AppCompatActivity(){
             @RequiresApi(Build.VERSION_CODES.KITKAT)
             @Throws(AuthFailureError::class)
             override fun getBody(): ByteArray? {
-                val params1 = HashMap<Any, Any>()
-                val params2 = HashMap<Any, Any>()
-                val miArreglo = ArrayList<String>()
-                //val list = mutableListOf<String>()
-                //val params3 = HashMap<Any, Any>()
-                //miArreglo.add(intent.getStringExtra("img").toString())
-                //miArreglo.add(intent.getStringExtra("nombre").toString())
-                //miArreglo.add(intent.getStringExtra("informacion").toString())
-                //list.add(["img"]) = intent.getStringExtra("img").toString()
-                val array = JsonArray()
-                val demo1 = JsonObject()
-                /*
-                array.add("test1")
-                array.add("test2")
 
-                `object`.add("arr", array)*/
-                params1["img"] = intent.getStringExtra("img").toString()
-                params1["nombre"] = intent.getStringExtra("nombre").toString()
-                params1["informacion"] = intent.getStringExtra("informacion").toString()
-                val _id = intent.getStringExtra(("id")).toString()
                 val rfc = intent.getStringExtra(("rfc")).toString()
                 val nombre = intent.getStringExtra(("nombre")).toString()
                 val informacion = intent.getStringExtra(("informacion")).toString()
-                val nombre_c = intent.getStringExtra(("nombre_c")).toString()
                 val imagen = intent.getStringExtra(("img")).toString()
+                val params2 = HashMap<Any, Any>()
 
-                //val json =JSONObject(params1 as Map<*, *>).toString()
-                var llenarLista = ArrayList<Elementos>()
-                llenarLista.add(Elementos(_id,rfc,nombre, informacion, nombre_c, imagen))
+                params2["rfc"] = rfc
+                params2["nombre"] = nombre
+                params2["informacion"] = informacion
+                params2["img"] = imagen
+                val json =JSONObject(params2 as Map<*, *>).toString()
+                print(json)
 
-                array.add(_id)
-                array.add(rfc)//, nombre, informacion, nombre_c, imagen)
-                //array.add("json2")
-                //array.add("json1")
-                //array.add("json3")
-                //demo1.add("jardin" , array)
-                print("*****************************************")
+                return JSONObject(params2 as Map<*, *>).toString().toByteArray()
 
-                val list = ArrayList<Elementos?>()
-                list.add(Elementos(_id,rfc,nombre, informacion, nombre_c, imagen))
-                //list.add(_id)
-                //list.add(rfc)
-                //val jsArray = JSONArray(list)
-                //val listPlants = JSON.parse<ArrayList<Elementos>>(data)
-                //params2["jardin"] = list
-                //params2["jardin"] = params1
-                print(list)
-                params2.put("jardin",list)
-
-
-
-                 //return JSONObject(params2 as Map<*, *>).toString().toByteArray()
-                //return JSONObject(params2 as Map<*, *>).toString().toByteArray()
-                return null
                 }
             }
 
