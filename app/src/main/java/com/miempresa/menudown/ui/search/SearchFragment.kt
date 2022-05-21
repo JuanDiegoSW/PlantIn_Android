@@ -59,7 +59,7 @@ class SearchFragment : Fragment() {
             var llenarLista = ArrayList<Elementos>()
             AsyncTask.execute {
                 val queue = Volley.newRequestQueue(activity)
-                val url = getString(R.string.urlAPI) + "/plantas"
+                val url = getString(R.string.urlAPI) + "plantas"
                 val stringRequest = JsonArrayRequest(url,
                     { response ->
                         try {
@@ -110,13 +110,13 @@ class SearchFragment : Fragment() {
         var llenarLista = ArrayList<Elementos>()
         AsyncTask.execute {
             val queue = Volley.newRequestQueue(activity)
-            val url = getString(R.string.urlAPI) + "/plantas?q="+texto
+            val url = getString(R.string.urlAPI) + "plantas/"+texto
             val stringRequest = JsonArrayRequest(url,
                     Response.Listener { response ->
                         try {
                             for (i in 0 until response.length()) {
                                 val id =
-                                    response.getJSONObject(i).getString("id")
+                                    response.getJSONObject(i).getString("_id")
                                 val rfc =
                                     response.getJSONObject(i).getString("rfc")
                                 val nombre =

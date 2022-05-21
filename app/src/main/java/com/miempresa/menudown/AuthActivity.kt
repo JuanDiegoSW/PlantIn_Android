@@ -103,7 +103,7 @@ class AuthActivity : AppCompatActivity(){
     }
 
     private fun loginRequest(email: String, password: String) {
-        var url:String = getString(R.string.urlAPI) + "/login"
+        var url:String = getString(R.string.urlAPI) + "login"
 
 
         var requestQueue: RequestQueue = Volley.newRequestQueue(this)

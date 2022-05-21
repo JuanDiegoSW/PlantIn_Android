@@ -10,4 +10,5 @@
     <color name="celeste">#00AAE4</color>
     <color name="favorite">#192740</color>
     <color name="main">#148F77</color>
+    <color name="danger">#D04C4C</color>
 </resources>

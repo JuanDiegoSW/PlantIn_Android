@@ -50,10 +50,10 @@ class AdapterPlantas(val ListaElementos:ArrayList<Elementos>): RecyclerView.Adap
     }
     @SuppressLint("RestrictedApi")
     override fun onBindViewHolder(holder: ViewHolder, position: Int){
-        //holder?.fImagen?.setImageBitmap(obtener_imagen(ListaElementos[position].img))
+        holder?.fImagen?.setImageBitmap(obtener_imagen(ListaElementos[position].img))
         holder?.fTitle?.text=ListaElementos[position].nombre
 
-        /*
+
         var id = ListaElementos[position].id
         var nombre = ListaElementos[position].nombre
         var informacion = ListaElementos[position].informacion
@@ -62,7 +62,7 @@ class AdapterPlantas(val ListaElementos:ArrayList<Elementos>): RecyclerView.Adap
 
 
         holder.itemView.setOnClickListener(){
-            val llamaractividad = Intent(holder.itemView.context,moreInfo::class.java)
+            val llamaractividad = Intent(holder.itemView.context,DataGardenUser::class.java)
             llamaractividad.putExtra("id",id)
             llamaractividad.putExtra("nombre",nombre)
             llamaractividad.putExtra("informacion",informacion)
@@ -70,11 +70,11 @@ class AdapterPlantas(val ListaElementos:ArrayList<Elementos>): RecyclerView.Adap
             llamaractividad.putExtra("img", imagen)
             holder.itemView.context.startActivity(llamaractividad)
         }
-        */
+
 
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent?.context).inflate(R.layout.elementoslistaplantasgeneral, parent, false);
+        val v = LayoutInflater.from(parent?.context).inflate(R.layout.listaplantasusuario, parent, false);
         return ViewHolder(v);
     }
 }

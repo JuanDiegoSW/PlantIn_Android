@@ -7,6 +7,15 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA"
+        android:required="false" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-feature
+        android:name="android.hardware.camera.any"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -16,7 +25,13 @@
         android:roundIcon="@mipmap/logo_actual"
         android:supportsRtl="true"
         android:theme="@style/Theme.MenuDown">
-        <activity android:name=".AyudaSoporte"></activity>
+        <activity
+            android:name=".takePhoto"
+            android:exported="false" />
+        <activity
+            android:name=".infoTienda"
+            android:exported="false" />
+        <activity android:name=".AyudaSoporte" />
         <activity android:name=".Alerta" />
         <activity android:name=".routes" />
 
@@ -32,14 +47,11 @@
         <activity
             android:name=".moreInfo"
             android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".DataGardenUser"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".SignUpActivitty" />
 
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
             android:value="true" />

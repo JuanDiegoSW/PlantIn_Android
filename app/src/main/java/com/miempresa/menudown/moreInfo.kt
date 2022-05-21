@@ -87,7 +87,7 @@ class moreInfo : AppCompatActivity(){
 
     private fun postDataUsingVolley() {
         val bundle :Bundle ?=intent.extras
-        var url = getString(R.string.urlAPI) + "/usuarios/"+usuario_correo
+        var url = getString(R.string.urlAPI) + "usuarios/"+usuario_correo
         // creando una nueva variable para nuestra cola de solicitudes
         val queue = Volley.newRequestQueue(this)
         val request: StringRequest = object : StringRequest(

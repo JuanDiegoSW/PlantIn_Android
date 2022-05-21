@@ -25,8 +25,8 @@ class MapFragment : Fragment(){
 
 
     private lateinit var dashboardViewModel: DashboardViewModel
-    private var adapter1: RecyclerView.Adapter<AdapterPlantas.ViewHolder>? = null
-    private var adapter: RecyclerView.Adapter<AdaptadorElementosPlantas.ViewHolder>? = null
+    private var adapter: RecyclerView.Adapter<AdapterPlantas.ViewHolder>? = null
+    //private var adapter: RecyclerView.Adapter<AdaptadorElementosPlantas.ViewHolder>? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -51,7 +51,7 @@ class MapFragment : Fragment(){
         var llenarLista = ArrayList<Elementos>()
         AsyncTask.execute {
             val queue = Volley.newRequestQueue(activity)
-            val url = getString(R.string.urlAPI) + "/usuarios/"+ usuario_correo
+            val url = getString(R.string.urlAPI) + "usuarios/"+ usuario_correo
             val stringRequest = JsonArrayRequest(url,
                 { response ->
                     try {
@@ -68,8 +68,8 @@ class MapFragment : Fragment(){
                                 response.getJSONObject(i).getString("img")
                             llenarLista.add(Elementos(id, rfc, nombre, informacion, imagen))
                         }
-                        adapter = AdaptadorElementosPlantas(llenarLista)
-                        adapter1 = AdapterPlantas(llenarLista)
+                        adapter = AdapterPlantas(llenarLista)
+                        //adapter1 = AdapterPlantas(llenarLista)
                         //listplants.adapter = adapter
                         listplants?.adapter = adapter
                     } catch (e: JSONException) {

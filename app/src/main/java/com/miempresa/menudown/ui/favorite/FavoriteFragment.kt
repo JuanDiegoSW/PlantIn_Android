@@ -1,11 +1,17 @@
 package com.miempresa.menudown.ui.favorite
-
+import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.hardware.Camera
 import android.os.AsyncTask
 import android.os.Bundle
+import android.os.Environment
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,24 +23,42 @@ import com.google.android.gms.maps.model.LatLng
 import com.miempresa.menudown.*
 import com.miempresa.menudown.ui.search.NotificationsViewModel
 import kotlinx.android.synthetic.main.fragment_favorite.*
+import kotlinx.android.synthetic.main.fragment_favorite.view.*
 import org.json.JSONException
+import java.io.File
 
 class FavoriteFragment : Fragment() {
 
+    private var globalContext: Context? = null
     private lateinit var notificationsViewModel: NotificationsViewModel
     //var llenarLista = ArrayList<Elementos>()
     private var adapter: RecyclerView.Adapter<AdaptadorElementos.ViewHolder>? = null
     private var adapter2: RecyclerView.Adapter<AdaptadorElementosTiendas.ViewHolder>? = null
     private val Plaza = LatLng(-16.3988031,-71.5374435)
     private lateinit var mMap: GoogleMap
+    val REQUEST_CODE = 100
+    lateinit var photoFile : File
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
+
     ): View? {
-        return inflater.inflate(R.layout.fragment_favorite, container, false)
+        val root = inflater.inflate(R.layout.fragment_favorite, container, false)
+        root.idcamera.setOnClickListener{
+            val editProfileIntent = Intent(getActivity(), takePhoto::class.java)
+            getActivity()?.startActivity(editProfileIntent)
+            }
+
+        return root
     }
+
+
+
+
+    /** A safe way to get an instance of the Camera object. */
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -45,7 +69,7 @@ class FavoriteFragment : Fragment() {
         var llenarLista = ArrayList<Elementos>()
         AsyncTask.execute {
             val queue = Volley.newRequestQueue(activity)
-            val url = getString(R.string.urlAPI) + "/plantas"
+            val url = getString(R.string.urlAPI) + "plantas"
             val stringRequest = JsonArrayRequest(url,
                 { response ->
                     try {
@@ -88,7 +112,7 @@ class FavoriteFragment : Fragment() {
             var llenarListaTiendas = ArrayList<ElementosTienda>()
             AsyncTask.execute {
                 val queue = Volley.newRequestQueue(activity)
-                val url = getString(R.string.urlAPI) + "/tiendas"
+                val url = getString(R.string.urlAPI) + "tiendas"
                 val stringRequest = JsonArrayRequest(url,
                     Response.Listener { response ->
                         try {

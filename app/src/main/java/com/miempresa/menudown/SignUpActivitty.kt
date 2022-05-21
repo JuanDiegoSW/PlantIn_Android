@@ -43,7 +43,7 @@ class SignUpActivitty : AppCompatActivity() {
         val phone = mobphone.text.toString().toInt()
         print(phone)
             // url para realizar POST a nuestro API
-        var url = getString(R.string.urlAPI) + "/usuarios"
+        var url = getString(R.string.urlAPI) + "usuarios"
         // creando una nueva variable para nuestra cola de solicitudes
         val queue = Volley.newRequestQueue(this)
 
