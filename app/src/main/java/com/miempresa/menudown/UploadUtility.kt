@@ -42,7 +42,6 @@ class UploadUtility(activity: Activity) {
             val fileName: String = if (uploadedFileName == null)  sourceFile.name else uploadedFileName
             toggleProgressDialog(true)
             try {
-                val requestBody:
 
                 val requestBody: RequestBody =
                     MultipartBody.Builder().setType(MultipartBody.FORM)
