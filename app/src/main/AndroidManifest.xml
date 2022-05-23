@@ -7,9 +7,11 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CAMERA"
+    <uses-permission
+        android:name="android.permission.CAMERA"
         android:required="false" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <uses-feature
         android:name="android.hardware.camera.any"
         android:required="true" />
@@ -26,17 +28,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MenuDown">
         <activity
-            android:name=".takePhoto"
+            android:name=".TakePhoto"
             android:exported="false" />
         <activity
             android:name=".infoTienda"
             android:exported="false" />
         <activity android:name=".AyudaSoporte" />
-        <activity android:name=".Alerta" />
         <activity android:name=".routes" />
-
-        <service android:name="org.eclipse.paho.android.service.MqttService" />
-
         <activity
             android:name=".Configuracion"
             android:parentActivityName=".MainActivity">
@@ -66,6 +64,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
 </manifest>

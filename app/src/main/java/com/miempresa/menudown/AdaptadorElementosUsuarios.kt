@@ -45,7 +45,7 @@ class AdaptadorElementosUsuarios(val ListaElementos:ArrayList<Usuarios>): Recycl
 
         //set the onclick listener for the singlt list item
     }
-    @SuppressLint("RestrictedApi")
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int){
         //holder?.fTitle?.text=ListaElementos[position].nombre
         //holder?.fname_c?.text=ListaElementos[position].contraseña

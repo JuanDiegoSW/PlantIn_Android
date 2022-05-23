@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.ProgressDialog
 import android.net.Uri
 import android.os.Build
+import android.provider.Settings.Global.getString
 import android.util.Log
 import android.webkit.MimeTypeMap
 import android.widget.Toast
@@ -17,13 +18,12 @@ class UploadUtility(activity: Activity) {
 
     var activity = activity;
     var dialog: ProgressDialog? = null
-    var serverURL: String = "https://my-api.plantnet.org/v2/identify/all?api-key=2b10dKoOhZxppgzLAck2k9JFzu"
+
     val client = OkHttpClient()
 
-    /*
     fun uploadFile(sourceFilePath: String, uploadedFileName: String? = null) {
         uploadFile(File(sourceFilePath), uploadedFileName)
-    }*/
+    }
 
     @RequiresApi(Build.VERSION_CODES.KITKAT)
     fun uploadFile(sourceFileUri: Uri, uploadedFileName: String? = null) {
@@ -38,9 +38,12 @@ class UploadUtility(activity: Activity) {
                 Log.e("file error", "Not able to get mime type")
                 return@Thread
             }
+            val serverURL = "https://my-api.plantnet.org/v2/identify/all?api-key=2b10dKoOhZxppgzLAck2k9JFzu"
             val fileName: String = if (uploadedFileName == null)  sourceFile.name else uploadedFileName
             toggleProgressDialog(true)
             try {
+                val requestBody:
+
                 val requestBody: RequestBody =
                     MultipartBody.Builder().setType(MultipartBody.FORM)
                         .addFormDataPart("images", fileName,sourceFile.asRequestBody(mimeType.toMediaTypeOrNull()))
@@ -51,7 +54,8 @@ class UploadUtility(activity: Activity) {
                 val response: Response = client.newCall(request).execute()
 
                 if (response.isSuccessful) {
-                    Toast.makeText(activity,response.toString(), Toast.LENGTH_SHORT).show()
+                    Log.d("File upload","success")
+                    showToast("File uploaded successfully")
                 } else {
                     Log.e("File upload", "failed")
                     showToast("File uploading failed")
@@ -90,4 +94,5 @@ class UploadUtility(activity: Activity) {
             }
         }
     }
+
 }

@@ -1,6 +1,5 @@
 package com.miempresa.menudown
 
-import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.view.LayoutInflater
@@ -44,7 +43,7 @@ class AdaptadorElementos(val ListaElementos:ArrayList<Elementos>): RecyclerView.
 
         //set the onclick listener for the singlt list item
     }
-    @SuppressLint("RestrictedApi")
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int){
         holder?.fImagen?.setImageBitmap(obtener_imagen(ListaElementos[position].img))
         holder?.fTitle?.text=ListaElementos[position].nombre

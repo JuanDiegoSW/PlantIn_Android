@@ -44,7 +44,6 @@ class AdaptadorElementosTiendas(val ListaElementosTienda: ArrayList<ElementosTie
 
         //set the onclick listener for the singlt list item
     }
-    @SuppressLint("RestrictedApi")
     override fun onBindViewHolder(holder: ViewHolder, position: Int){
         holder?.fImagen?.setImageBitmap(obtener_imagen(ListaElementosTienda[position].img))
         holder?.fTitle?.text=ListaElementosTienda[position].nombre

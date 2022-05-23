@@ -7,4 +7,5 @@
     <string name="claveapi_place">AIzaSyCVgZgkGZjYbmC41e1Nzdl_hl_Gv0Y2IbY</string>
 
     <string name="urlAPI">https://plantinapi.herokuapp.com/</string>
+    <string name="urlPlantInt">https://my-api.plantnet.org/v2/identify/all?api-key=2b10dKoOhZxppgzLAck2k9JFzu</string>
 </resources>

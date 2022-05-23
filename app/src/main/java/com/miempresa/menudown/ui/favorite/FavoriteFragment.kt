@@ -47,7 +47,7 @@ class FavoriteFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_favorite, container, false)
         root.idcamera.setOnClickListener{
-            val editProfileIntent = Intent(getActivity(), takePhoto::class.java)
+            val editProfileIntent = Intent(getActivity(), TakePhoto::class.java)
             getActivity()?.startActivity(editProfileIntent)
             }
 
